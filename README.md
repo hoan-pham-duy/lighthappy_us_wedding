@@ -1,3 +1,3 @@
 ### Install qrencode
 sudo apt install qrencode
-qrencode https://wedding.lighthappy.us/ -o qrurl.png -s 21
+qrencode https://lighthappy.us/ -o qrurl.png -s 21
