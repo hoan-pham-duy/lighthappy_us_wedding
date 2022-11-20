@@ -258,68 +258,39 @@
     </div>-->
 </section>
 
-<section class="rsvp text-center" id="rsvp">
-
-    <div id="rsvp-modal" class="modal fade" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span>
-                    </button>
-                    <div class="section-padding">
-                        <h3>Thank you!</h3>
-                        <p>We are glad to see you join us on our big day.</p>
-                        <div id="add-to-cal"></div>
-                    </div>
-                </div>
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
-
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 col-md-offset-3">
-                <h3 onclick="getWeddingMessages()">Gửi lời chúc đến chúng mình ❤️ </h3>
-                <form id="wedding-message-form" class="rsvp-form"
-                >
-<!--
-                <div class="row">
-                        <div class="col-md-6 col-sm-6">
-                            <div class="form-input-group">
-                                <i class="fa fa-user "style="color: #515050;"></i><input name="name" class=""
-                                                                 placeholder="Được gửi từ"
-                                                                 required>
-                            </div>
-                        </div>                        
-                        <div class="col-md-6 col-sm-6">
-                            <div class="form-input-group">
-                                <i class="fa fa-envelope" style="color: #515050;"></i><input type="email" name="email" class=""
-                                                                     placeholder="Lời Chúc"
-                                                                     required>
-                            </div>
-                        </div>
-
-                    </div>
--->
-                    <button class="btn-fill rsvp-btn" >
-                        GỬI
-                    </button>
-                </form>
-            </div>
-        </div>
-    </div>
-</section>
-
 <section class="events section-padding">
     <div id="chat">
         <!-- messages will display here -->
         <ul id="messages"></ul>
   
         <!-- form to send message -->
-        <form id="message-form">
+        <!-- <form id="message-form"> -->
+          <!-- <input id="username" type="text" />
           <input id="message-input" type="text" />
-          <button id="message-btn" type="submit">Send</button>
-        </form>
+          <button id="message-btn" type="submit">Send</button> -->
+        <!-- </form> -->
+        <form id="message-form" class="rsvp-form"
+        >
+        <div class="row">
+                <div class="col-md-6 col-sm-6">
+                    <div class="form-input-group">
+                        <i class="fa fa-user "style="color: #515050;"></i><input id="username" name="name" class=""
+                                                         placeholder="Được gửi từ"
+                                                         required>
+                    </div>
+                </div>                        
+                <div class="col-md-6 col-sm-6">
+                    <div class="form-input-group">
+                        <i class="fa fa-envelope" style="color: #515050;"></i><input id="message-input" class=""
+                                                             placeholder="Lời Chúc"
+                                                             required>
+                    </div>
+                </div>
+            </div>
+            <button class="btn-fill rsvp-btn" id="message-btn" type="submit" >
+                GỬI
+            </button>
+        </form>        
       </div>
 </section>
 
@@ -393,7 +364,7 @@ firebase.initializeApp(firebaseConfig);
 const db = firebase.database();
 
 // get user's data
-const username = prompt("Please Tell Us Your Name");
+// const username = prompt("Please Tell Us Your Name");
 
 // submit form
 // listen for submit event on the form and call the postChat function
@@ -405,6 +376,8 @@ function sendMessage(e) {
 
   // get values to be submitted
   const timestamp = Date.now();
+  const usernameInput = document.getElementById('username')
+  const username = usernameInput.value
   const messageInput = document.getElementById("message-input");
   const message = messageInput.value;
 
@@ -416,6 +389,7 @@ function sendMessage(e) {
     .getElementById("messages")
     .scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
 
+    console.log('username = ', username)
   // create db collection and send in the data
   db.ref("messages/" + timestamp).set({
     username,

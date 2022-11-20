@@ -25,11 +25,11 @@ li span {
 
 #message-form {
     text-align: center;
-    position: fixed;
+    /* position: fixed; */
     left: 0;
     bottom: 0;
     width: 100%;
-    background-color: #b7b5b9;
+    /* background-color: #b7b5b9; */
 }
 
 input {
