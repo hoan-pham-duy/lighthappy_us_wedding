@@ -32,6 +32,9 @@
     <link rel="stylesheet" href="./css/animate.min.css">
     <link rel="stylesheet" href="./css/font-awesome.min.css">
     <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+    <script src="src/app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-database.js"></script>
 </head>
 <body id="top">
 <!--[if lt IE 8]>
@@ -275,11 +278,11 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
-                <h3>Gửi lời chúc đến chúng mình ❤️ </h3>
-                <form id="rsvp-form" class="rsvp-form"
-                      action=""
-                      method="POST">
-                    <div class="row">
+                <h3 onclick="getWeddingMessages()">Gửi lời chúc đến chúng mình ❤️ </h3>
+                <form id="wedding-message-form" class="rsvp-form"
+                >
+<!--
+                <div class="row">
                         <div class="col-md-6 col-sm-6">
                             <div class="form-input-group">
                                 <i class="fa fa-user "style="color: #515050;"></i><input name="name" class=""
@@ -296,7 +299,8 @@
                         </div>
 
                     </div>
-                    <button class="btn-fill rsvp-btn">
+-->
+                    <button class="btn-fill rsvp-btn" >
                         GỬI
                     </button>
                 </form>
@@ -310,25 +314,7 @@
     </div>
 </section> -->
 
-<!-- <section class="events" id="wedding-messages">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h3 class="header" style="color: green; font-size: 36px">Những lời chúc</h3>
-            </div>
-        </div>   
-        <div class="row">
-            <div class="col-md-6 col-sm-12 col-xs-12">
-                <div class="wp3">
-                    <p><strong>Hoan</strong></p>
-                    <h5>Chúc chúng ta sẽ sống hạnh phúc, đầu bạc răng long ❤️</h5>
-                </div>
-            </div>
-        </div>
-    </div>
-
-</section> -->
-</section><section class="rsvp text-center" id="rsvp">
+<section class="rsvp text-center" id="rsvp">
 
     <div id="rsvp-modal" class="modal fade" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
@@ -361,6 +347,20 @@
     </div>        
     </div>
 </section>
+
+<section class="events section-padding">
+    <div id="chat">
+        <!-- messages will display here -->
+        <ul id="messages"></ul>
+  
+        <!-- form to send message -->
+        <form id="message-form">
+          <input id="message-input" type="text" />
+          <button id="message-btn" type="submit">Send</button>
+        </form>
+      </div>
+</section>
+
 
 <footer>
     <div class="container">
@@ -401,5 +401,80 @@
     ga('create', 'UA-46465113-4', 'auto');
     ga('send', 'pageview');
 </script>
+  <script type="module">
+// Your web app's Firebase configuration
+// var firebaseConfig = {
+//   apiKey: process.env.apiKey,
+//   authDomain: process.env.authDomain,
+//   databaseURL: process.env.databaseURL,
+//   projectId: process.env.projectId,
+//   storageBucket: process.env.storageBucket,
+//   messagingSenderId: process.env.messagingSenderId,
+//   appId: process.env.appId,
+// };
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAAsEggpjIQyVplffjoNLMsH_qTfGk1k0I",
+  authDomain: "lighthappy-us-wedding.firebaseapp.com",
+  projectId: "lighthappy-us-wedding",
+  storageBucket: "lighthappy-us-wedding.appspot.com",
+  databaseURL: "https://lighthappy-us-wedding-default-rtdb.asia-southeast1.firebasedatabase.app",
+  messagingSenderId: "85851043499",
+  appId: "1:85851043499:web:f3613917c919273c44e9ee",
+  measurementId: "G-ZV7D74L3F3"
+};
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+
+// initialize database
+const db = firebase.database();
+
+// get user's data
+const username = prompt("Please Tell Us Your Name");
+
+// submit form
+// listen for submit event on the form and call the postChat function
+document.getElementById("message-form").addEventListener("submit", sendMessage);
+
+// send message to db
+function sendMessage(e) {
+  e.preventDefault();
+
+  // get values to be submitted
+  const timestamp = Date.now();
+  const messageInput = document.getElementById("message-input");
+  const message = messageInput.value;
+
+  // clear the input box
+  messageInput.value = "";
+
+  //auto scroll to bottom
+  document
+    .getElementById("messages")
+    .scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
+
+  // create db collection and send in the data
+  db.ref("messages/" + timestamp).set({
+    username,
+    message,
+  });
+}
+
+// display the messages
+// reference the collection created earlier
+const fetchChat = db.ref("messages/");
+
+// check for new messages using the onChildAdded event listener
+fetchChat.on("child_added", function (snapshot) {
+  const messages = snapshot.val();
+  const message = `<li class=${
+    username === messages.username ? "sent" : "receive"
+  }><span>${messages.username}: </span>${messages.message}</li>`;
+  // append the message on the page
+  document.getElementById("messages").innerHTML += message;
+});
+
+  </script>
 </body>
 </html>

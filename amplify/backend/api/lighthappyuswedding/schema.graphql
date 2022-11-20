@@ -7,3 +7,9 @@ type WeddingMessage @model {
   from: String!
   message: String
 }
+
+type Todo @model {
+  id: ID!
+  name: String!
+  description: String
+}
