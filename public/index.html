@@ -383,7 +383,8 @@ function sendMessage(e) {
   const usernameInput = document.getElementById('username')
   const username = usernameInput.value
   const messageInput = document.getElementById("message-input");
-  const message = messageInput.value;
+  const message = messageInput.value.replace(/\n\r?/g, '<br />');;
+
 
   // clear the input box
   messageInput.value = "";
