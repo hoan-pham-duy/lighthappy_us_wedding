@@ -2,17 +2,17 @@
     padding-bottom: 30%;
 }
 
-li {
+li.receive {
     list-style-type: none;
     margin-bottom: 10px;
     background-color: #6929ca;
     padding: 5px;
     border-radius: 10px;
     color: white;
-    width: 50%;
+    width: 100%;
 }
 
-li span {
+li span.receive {
     font-style: italic;
     font-weight: bolder;
     color: #b5b0b9;
@@ -55,5 +55,13 @@ button {
 
 .receive {
     width: 100%;
-    text-align: center;
+    text-align: left;
+}
+
+#message-input {
+    height: 100%;
+    width: 100%;
+   -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;  
 }

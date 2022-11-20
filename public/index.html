@@ -50,17 +50,11 @@
                 <div class="header-nav">
                     <nav>
                         <ul class="primary-nav">
-                            <li><a href="#events-bride" style="color: #0681ea;">Sự kiện</a></li>
-                            <!-- <li><a href="#events-groom" style="color: #0681ea;">Nhà Trai</a></li> -->
-                            <li><a href="#intro" style="color: #0681ea;">Chuyện Chúng Mình</a></li>
-                            <!-- <li><a href="#instagram">Instagram</a></li> -->
-                            <li><a href="#eng-pics" style="color: #0681ea;">Những Tấm Hình</a></li>
-                            <!-- <li class="hidden-sm hidden-xs"><a href="#video-bg">Glimpse of the city</a></li> -->
+                            <li><a href="#events-bride" style="color: #96c7ef;">Sự kiện</a></li>
+                            <li><a href="#intro" style="color: #96c7ef;">Chuyện Chúng Mình</a></li>
+                            <li><a href="#eng-pics" style="color: #96c7ef;">Những Tấm Hình</a></li>
+                            <li><a href="#wedding-messages" style="color: #96c7ef;">Lời chúc đến chúng mình</a></li>
                         </ul>
-                        <!-- <ul class="member-actions">
-                            <li><a href="#map" class="login">Venue</a></li>
-                            <li><a href="#rsvp" class="btn-white btn-small">RSVP</a></li>
-                        </ul> -->
                     </nav>
                 </div>
                 <div class="navicon">
@@ -258,7 +252,7 @@
     </div>-->
 </section>
 
-<section class="events section-padding rsvp text-center">
+<section class="events section-padding rsvp text-center" id="wedding-message">
     <div class="container">
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
@@ -278,25 +272,28 @@
         <form id="message-form" class="rsvp-form"
         >
         <div class="row">
-                <div class="col-md-6 col-sm-6">
-                    <div class="form-input-group">
-                        <i class="fa fa-user "style="color: #515050;"></i><input id="username" name="name" class=""
-                                                         placeholder="Được gửi từ"
-                                                         required>
-                    </div>
-                </div>                        
-                <div class="col-md-6 col-sm-6">
-                    <div class="form-input-group">
-                        <i class="fa fa-envelope" style="color: #515050;"></i><input id="message-input" class=""
-                                                             placeholder="Lời Chúc"
-                                                             required>
+            <div class="col-md-6 col-sm-6">
+                <div class="form-input-group">
+                    <i class="fa fa-user "style="color: #515050;"></i><input id="username" name="name" class=""
+                                                        placeholder="Được gửi từ"
+                                                        required>
+                </div>
+            </div>                        
+            <div class="col-md-6 col-sm-6">
+                <div class="form-input-group" style="height: 200px;">
+                    <!-- <i class="fa fa-envelope" style="color: #515050;"></i> -->
+                    <div class="form-input-group" style="height: 200px;">
+                        <textarea id="message-input" class=""
+                        placeholder="Lời Chúc"
+                        required></textarea>
                     </div>
                 </div>
             </div>
             <button class="btn-fill rsvp-btn" id="message-btn" type="submit" >
                 GỬI
             </button>
-        </form>        
+        <div>
+        </form>
       </div>
     </div>
 </section>
@@ -413,7 +410,7 @@ fetchChat.on("child_added", function (snapshot) {
   const messages = snapshot.val();
   const message = `<li class=${
     username === messages.username ? "sent" : "receive"
-  }><span>${messages.username}: </span>${messages.message}</li>`;
+  }><span><strong>${messages.username}:</strong></span><br />${messages.message}</li>`;
   // append the message on the page
   document.getElementById("messages").innerHTML += message;
 });
