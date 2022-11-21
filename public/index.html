@@ -31,7 +31,11 @@
     <link rel="stylesheet" href="./css/queries.css">
     <link rel="stylesheet" href="./css/animate.min.css">
     <link rel="stylesheet" href="./css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/wedding_message.css">
     <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+    <script src="src/app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-database.js"></script>   
 </head>
 <body id="top">
 <!--[if lt IE 8]>
@@ -46,17 +50,11 @@
                 <div class="header-nav">
                     <nav>
                         <ul class="primary-nav">
-                            <li><a href="#intro">Chuyện Chúng Mình</a></li>
-                            <li><a href="#events-bride">Nhà Gái</a></li>
-                            <li><a href="#events-groom">Nhà Trai</a></li>
-                            <!-- <li><a href="#instagram">Instagram</a></li> -->
-                            <li><a href="#eng-pics">Album Ảnh Chúng Mình</a></li>
-                            <!-- <li class="hidden-sm hidden-xs"><a href="#video-bg">Glimpse of the city</a></li> -->
+                            <li><a href="#events-bride" style="color: #96c7ef;">Sự kiện</a></li>
+                            <li><a href="#intro" style="color: #96c7ef;">Chuyện Chúng Mình</a></li>
+                            <li><a href="#eng-pics" style="color: #96c7ef;">Khoảnh Khắc Chúng Mình</a></li>
+                            <li><a href="#wedding-messages" style="color: #96c7ef;">Lời chúc đến chúng mình</a></li>
                         </ul>
-                        <!-- <ul class="member-actions">
-                            <li><a href="#map" class="login">Venue</a></li>
-                            <li><a href="#rsvp" class="btn-white btn-small">RSVP</a></li>
-                        </ul> -->
                     </nav>
                 </div>
                 <div class="navicon">
@@ -94,7 +92,7 @@
                 <p>Chúng mình sẽ tổ chức đám cưới vào:<br />
                     23-24/12/2022 Dương Lịch <br />
                     1-2/12/2022 Âm Lịch <br />
-                    Trân trọng kính mời bạn đến dự bữa tiệc chung vui mừng ngày chúng mình quyết định bên nhau trọn đời!</p>
+                    Trân trọng kính mời bạn đến dự bữa tiệc chung vui <br /> mừng ngày chúng mình quyết định bên nhau trọn đời!</p>
                 <!-- <div class="share-bar"></div> -->
             </div>
         </div>
@@ -105,12 +103,12 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h3 class="header" style="color: green; font-size: 36px">Nhà Gái</h3>
+                <h3 class="header" style="color: #2b689c; font-size: 36px">Nhà Gái</h3>
             </div>
         </div>
         <div class="row">
             <div class="col-md-8">
-                <p><strong>Địa Chỉ: Thôn 1 Hoành Sơn, Xã Thụy Văn, Huyện Thái Thụy, Tỉnh Thái Bình</strong></p>
+                <p><strong>Địa Chỉ: Thôn 1 Hoành Sơn, Xã Thụy Văn,<br /> Huyện Thái Thụy, Tỉnh Thái Bình</strong></p>
             </div>
         </div>     
         <div class="row">
@@ -131,11 +129,11 @@
         </div>
         <div class="row">
             <div class="col-md-6">
-                <!-- <p><a style="color: #0681ea;" href="https://www.google.com/maps/dir//20.582058,106.5223859/@20.5819711,106.5223393,237m/data=!3m1!1e3!4m2!4m1!3e2"
-                target="_blank"><i class="fa fa-map-marker fa-2xl" style="font-size: 24px" style="color: #0681ea;"></i>Google Maps </a></p> -->
-                <h3 class="header"><a style="color: #0681ea;" href="https://www.google.com/maps/dir//20.582058,106.5223859/@20.5819711,106.5223393,237m/data=!3m1!1e3!4m2!4m1!3e2"
-                target="_blank"><i class="fa fa-map-marker fa-2xl" style="font-size: 24px" style="color: #0681ea;"></i>Google Maps</a></h3>
-                <h3 class="header"><a style="color: #0681ea;" href="tel:+84969469249"><i class="fa fa-phone" style="font-size:24px" style="color: #0681ea;"></i>Call</a></h3>
+                <!-- <p><a style="color: #2b689c;" href="https://www.google.com/maps/dir//20.582058,106.5223859/@20.5819711,106.5223393,237m/data=!3m1!1e3!4m2!4m1!3e2"
+                target="_blank"><i class="fa fa-map-marker fa-2xl" style="font-size: 24px" style="color: #2b689c;"></i>Google Maps </a></p> -->
+                <h3 class="header"><a style="color: #2b689c;" href="https://www.google.com/maps/dir//20.582058,106.5223859/@20.5819711,106.5223393,237m/data=!3m1!1e3!4m2!4m1!3e2"
+                target="_blank"><i class="fa fa-map-marker fa-2xl" style="font-size: 24px" style="color: #2b689c;"></i>Google Maps</a></h3>
+                <h3 class="header"><a style="color: #2b689c;" href="tel:+84969469249"><i class="fa fa-phone" style="font-size:24px" style="color: #2b689c;"></i>Call</a></h3>
             </div>
         </div>
     </div>
@@ -146,12 +144,12 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h3 class="header" style="color: green; font-size: 36px">Nhà Trai</h3>
+                <h3 class="header" style="color: #2b689c; font-size: 36px">Nhà Trai</h3>
             </div>
         </div>
         <div class="row">
             <div class="col-md-8">
-                <p><strong>Địa Chỉ: Xóm Bắc, Thôn Song Động, xã Tân An, huyện Thanh Hà, tỉnh Hải Dương</strong></p>
+                <p><strong>Địa Chỉ: Xóm Bắc, Thôn Song Động, xã Tân An, <br /> huyện Thanh Hà, tỉnh Hải Dương</strong></p>
             </div>
         </div>    
         <div class="row">
@@ -175,9 +173,9 @@
         </div>
         <div class="row">
             <div class="col-md-6"> 
-                <h3 class="header"><a style="color: #0681ea;" href="https://www.google.com/maps/dir//Song+%C4%90%E1%BB%99ng,+T%C3%A2n+An,+Thanh+H%C3%A0,+Hai+Duong,+Vietnam/@20.9095323,106.3994975,77m/data=!3m1!1e3!4m8!4m7!1m0!1m5!1m1!1s0x3135845361080477:0xad6c773dee8f20e2!2m2!1d106.3991788!2d20.9098662"
-                    target="_blank"><i class="fa fa-map-marker fa-2xl" style="font-size: 24px" style="color: #0681ea;"></i>Google Maps</a></h3>
-                <h3 class="header"><a style="color: #0681ea;" href="tel:+84349482358"><i class="fa fa-phone fa-2xl" style="font-size: 24px" style="color: #0681ea;"></i>Call</a></h3>
+                <h3 class="header"><a style="color: #2b689c;" href="https://www.google.com/maps/dir//Song+%C4%90%E1%BB%99ng,+T%C3%A2n+An,+Thanh+H%C3%A0,+Hai+Duong,+Vietnam/@20.9095323,106.3994975,77m/data=!3m1!1e3!4m8!4m7!1m0!1m5!1m1!1s0x3135845361080477:0xad6c773dee8f20e2!2m2!1d106.3991788!2d20.9098662"
+                    target="_blank"><i class="fa fa-map-marker fa-2xl" style="font-size: 24px" style="color: #2b689c;"></i>Google Maps</a></h3>
+                <h3 class="header"><a style="color: #2b689c;" href="tel:+84349482358"><i class="fa fa-phone fa-2xl" style="font-size: 24px" style="color: #2b689c;"></i>Call</a></h3>
             </div>
         </div>
     </div>        
@@ -213,30 +211,103 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12 text-center">
-                <h3 class="header">Our photos</h3>
+                <h3 class="header">Khoảnh Khắc Chúng Mình</h3>
             </div>
         </div>
         <div class="row">
             <div class="col-md-2">
-                <a class="fancybox" rel="group" href="img/eng_pics/eiffel_1.jpeg">
+                <a class="fancybox" rel="group" href="img/album/9.jpg">
                     <div class="img-wrap">
                         <div class="overlay">
                             <i class="fa fa-search"></i>
                         </div>
-                        <img src="img/eng_pics/eiffel_1.jpeg" alt=""/>
+                        <img src="img/album/9.jpg" alt=""/>
+                    </div>
+                </a>
+            </div>        
+        <div class="row">
+            <div class="col-md-2">
+                <a class="fancybox" rel="group" href="img/album/7.jpg">
+                    <div class="img-wrap">
+                        <div class="overlay">
+                            <i class="fa fa-search"></i>
+                        </div>
+                        <img src="img/album/7.jpg" alt=""/>
                     </div>
                 </a>
             </div>
             <div class="col-md-2">
-                <a class="fancybox" rel="group" href="img/eng_pics/titlis.jpeg">
+                <a class="fancybox" rel="group" href="img/album/8.jpg">
                     <div class="img-wrap">
                         <div class="overlay">
                             <i class="fa fa-search"></i>
                         </div>
-                        <img src="img/eng_pics/titlis.jpeg" alt=""/>
+                        <img src="img/album/8.jpg" alt=""/>
                     </div>
                 </a>
             </div>
+            <div class="col-md-2">
+                <a class="fancybox" rel="group" href="img/album/4.jpg">
+                    <div class="img-wrap">
+                        <div class="overlay">
+                            <i class="fa fa-search"></i>
+                        </div>
+                        <img src="img/album/4.jpg" alt=""/>
+                    </div>
+                </a>
+            </div>            
+            <div class="col-md-2">
+                <a class="fancybox" rel="group" href="img/album/6.jpg">
+                    <div class="img-wrap">
+                        <div class="overlay">
+                            <i class="fa fa-search"></i>
+                        </div>
+                        <img src="img/album/6.jpg" alt=""/>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-2">
+                <a class="fancybox" rel="group" href="img/album/2.jpg">
+                    <div class="img-wrap">
+                        <div class="overlay">
+                            <i class="fa fa-search"></i>
+                        </div>
+                        <img src="img/album/2.jpg" alt=""/>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-2">
+                <a class="fancybox" rel="group" href="img/album/1.jpg">
+                    <div class="img-wrap">
+                        <div class="overlay">
+                            <i class="fa fa-search"></i>
+                        </div>
+                        <img src="img/album/1.jpg" alt=""/>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-2">
+                <a class="fancybox" rel="group" href="img/album/3.jpg">
+                    <div class="img-wrap">
+                        <div class="overlay">
+                            <i class="fa fa-search"></i>
+                        </div>
+                        <img src="img/album/3.jpg" alt=""/>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-2">
+                <a class="fancybox" rel="group" href="img/album/5.jpg">
+                    <div class="img-wrap">
+                        <div class="overlay">
+                            <i class="fa fa-search"></i>
+                        </div>
+                        <img src="img/album/5.jpg" alt=""/>
+                    </div>
+                </a>
+            </div>
+            </div>                                                                                          
+
         </div>
     </div>
     <div class="container">
@@ -254,15 +325,59 @@
     </div>-->
 </section>
 
-
+<section class="events section-padding rsvp text-center" id="wedding-messages">
+    <div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <h3 style="font-size: 25px">Lời chúc đến chúng mình 💌</h3>
+        </div>
+    </div>     
+    <div id="chat">
+        <!-- messages will display here -->
+        <ul id="messages"></ul>
+  
+        <!-- form to send message -->
+        <!-- <form id="message-form"> -->
+          <!-- <input id="username" type="text" />
+          <input id="message-input" type="text" />
+          <button id="message-btn" type="submit">Send</button> -->
+        <!-- </form> -->
+        <form id="message-form" class="rsvp-form"
+        >
+        <div class="row">
+            <div class="col-md-6 col-sm-6">
+                <div class="form-input-group">
+                    <i class="fa fa-user "style="color: #515050;"></i><input id="username" name="name" class=""
+                                                        placeholder="Gửi từ"
+                                                        required>
+                </div>
+            </div>                        
+            <div class="col-md-6 col-sm-6">
+                <div class="form-input-group" style="height: 200px;">
+                    <!-- <i class="fa fa-envelope" style="color: #515050;"></i> -->
+                    <div class="form-input-group" style="height: 200px;">
+                        <textarea id="message-input" class=""
+                        placeholder="Lời chúc từ bạn"
+                        required></textarea>
+                    </div>
+                </div>
+            </div>
+            <button style="background-color: #2b689c; color: white">
+                GỬI
+            </button>
+        <div>
+        </form>
+      </div>
+    </div>
+</section>
 
 
 <footer>
     <div class="container">
         <div class="row">
             <div class="col-sm-12 text-center content">
-                <span class="to-top-wrapper"><a href="#top" class="to-top"><i class="fa fa-angle-up"></i></a></span>
-                <p> Cảm ơn mọi người <span class="fa fa-heart pulse2"></span></p>
+                <span class="to-top-wrapper"><a href="#top" class="to-top"><i class="fa fa-angle-up" style="color: #2b689c;"></i></a></span>
+                <p> Chúng mình cảm ơn <span class="fa fa-heart pulse2"></span></p>
             </div>
         </div>
     </div>
@@ -296,5 +411,84 @@
     ga('create', 'UA-46465113-4', 'auto');
     ga('send', 'pageview');
 </script>
+  <script type="module">
+// Your web app's Firebase configuration
+// var firebaseConfig = {
+//   apiKey: process.env.apiKey,
+//   authDomain: process.env.authDomain,
+//   databaseURL: process.env.databaseURL,
+//   projectId: process.env.projectId,
+//   storageBucket: process.env.storageBucket,
+//   messagingSenderId: process.env.messagingSenderId,
+//   appId: process.env.appId,
+// };
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAAsEggpjIQyVplffjoNLMsH_qTfGk1k0I",
+  authDomain: "lighthappy-us-wedding.firebaseapp.com",
+  projectId: "lighthappy-us-wedding",
+  storageBucket: "lighthappy-us-wedding.appspot.com",
+  databaseURL: "https://lighthappy-us-wedding-default-rtdb.asia-southeast1.firebasedatabase.app",
+  messagingSenderId: "85851043499",
+  appId: "1:85851043499:web:f3613917c919273c44e9ee",
+  measurementId: "G-ZV7D74L3F3"
+};
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+
+// initialize database
+const db = firebase.database();
+
+// get user's data
+// const username = prompt("Please Tell Us Your Name");
+
+// submit form
+// listen for submit event on the form and call the postChat function
+document.getElementById("message-form").addEventListener("submit", sendMessage);
+
+// send message to db
+function sendMessage(e) {
+  e.preventDefault();
+
+  // get values to be submitted
+  const timestamp = Date.now();
+  const usernameInput = document.getElementById('username')
+  const username = usernameInput.value
+  const messageInput = document.getElementById("message-input");
+  const message = messageInput.value.replace(/\n\r?/g, '<br />');;
+
+
+  // clear the input box
+  messageInput.value = "";
+
+  //auto scroll to bottom
+  document
+    .getElementById("messages")
+    .scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
+
+    console.log('username = ', username)
+  // create db collection and send in the data
+  db.ref("messages/" + timestamp).set({
+    username,
+    message,
+  });
+}
+
+// display the messages
+// reference the collection created earlier
+const fetchChat = db.ref("messages/");
+
+// check for new messages using the onChildAdded event listener
+fetchChat.on("child_added", function (snapshot) {
+  const messages = snapshot.val();
+  const message = `<li class=${
+    username === messages.username ? "sent" : "receive"
+  }><span><strong>${messages.username}:</strong></span><br />${messages.message}</li>`;
+  // append the message on the page
+  document.getElementById("messages").innerHTML += message;
+});
+
+  </script>
 </body>
 </html>
